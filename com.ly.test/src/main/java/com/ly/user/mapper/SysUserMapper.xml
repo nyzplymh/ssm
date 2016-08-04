@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ly.user.dao.SysUserMapper" >
+  <resultMap id="BaseResultMap" type="com.ly.user.domain.SysUser" >
+    <id column="SYS_USER_ID" property="sysUserId" jdbcType="INTEGER" />
+    <result column="BUY_TOTAL_AMOUNT" property="buyTotalAmount" jdbcType="DOUBLE" />
+    <result column="BUYER_TOTAL_RATING" property="buyerTotalRating" jdbcType="INTEGER" />
+    <result column="IS_ADMIN" property="isAdmin" jdbcType="VARCHAR" />
+    <result column="IS_COMPLETE_USER_INF" property="isCompleteUserInf" jdbcType="VARCHAR" />
+    <result column="IS_DELETE" property="isDelete" jdbcType="VARCHAR" />
+    <result column="IS_EMAIL_ACTIVATE" property="isEmailActivate" jdbcType="VARCHAR" />
+    <result column="LAST_BUY_TIME" property="lastBuyTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_PSW_MISTAKE_TIME" property="lastPswMistakeTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_PSW_MODIFY_TIME" property="lastPswModifyTime" jdbcType="TIMESTAMP" />
+    <result column="LOGIN_ID" property="loginId" jdbcType="VARCHAR" />
+    <result column="OAUTH_USER_ID" property="oauthUserId" jdbcType="VARCHAR" />
+    <result column="REG_ORG_ID" property="regOrgId" jdbcType="INTEGER" />
+    <result column="REGISTER_DATE" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="REMAIN_PSW_MISTAKE_TIMES" property="remainPswMistakeTimes" jdbcType="INTEGER" />
+    <result column="USER_EMAIL" property="userEmail" jdbcType="VARCHAR" />
+    <result column="USER_GRADE_LEVEL_ID" property="userGradeLevelId" jdbcType="INTEGER" />
+    <result column="USER_ICON" property="userIcon" jdbcType="VARCHAR" />
+    <result column="USER_MOBILE" property="userMobile" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="USER_PSW" property="userPsw" jdbcType="VARCHAR" />
+    <result column="USER_SEX_CODE" property="userSexCode" jdbcType="VARCHAR" />
+    <result column="USER_SOURCE_CODE" property="userSourceCode" jdbcType="VARCHAR" />
+    <result column="USER_STAT_CODE" property="userStatCode" jdbcType="VARCHAR" />
+    <result column="USER_TAG" property="userTag" jdbcType="VARCHAR" />
+    <result column="USER_TEL" property="userTel" jdbcType="VARCHAR" />
+    <result column="CARD_NO" property="cardNo" jdbcType="VARCHAR" />
+    <result column="ID_CARD" property="idCard" jdbcType="VARCHAR" />
+    <result column="V_USER_ID" property="vUserId" jdbcType="VARCHAR" />
+    <result column="V_USER_NAME" property="vUserName" jdbcType="VARCHAR" />
+    <result column="IS_EXP_USER" property="isExpUser" jdbcType="VARCHAR" />
+    <result column="USER_EXP_NAME" property="userExpName" jdbcType="VARCHAR" />
+    <result column="USER_BATCH_ID" property="userBatchId" jdbcType="VARCHAR" />
+    <result column="IS_ACTIVATE" property="isActivate" jdbcType="VARCHAR" />
+    <result column="IS_SX_FLAG" property="isSxFlag" jdbcType="VARCHAR" />
+    <result column="SX_USER_LEVEL" property="sxUserLevel" jdbcType="VARCHAR" />
+    <result column="UPPER_USER_ID" property="upperUserId" jdbcType="VARCHAR" />
+    <result column="ENT_ID" property="entId" jdbcType="INTEGER" />
+    <result column="OBK_MEMSTATE" property="obkMemstate" jdbcType="VARCHAR" />
+    <result column="UPTMP" property="uptmp" jdbcType="VARCHAR" />
+    <result column="YPT_FLAG" property="yptFlag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SYS_USER_ID, BUY_TOTAL_AMOUNT, BUYER_TOTAL_RATING, IS_ADMIN, IS_COMPLETE_USER_INF, 
+    IS_DELETE, IS_EMAIL_ACTIVATE, LAST_BUY_TIME, LAST_PSW_MISTAKE_TIME, LAST_PSW_MODIFY_TIME, 
+    LOGIN_ID, OAUTH_USER_ID, REG_ORG_ID, REGISTER_DATE, REMAIN_PSW_MISTAKE_TIMES, USER_EMAIL, 
+    USER_GRADE_LEVEL_ID, USER_ICON, USER_MOBILE, USER_NAME, USER_PSW, USER_SEX_CODE, 
+    USER_SOURCE_CODE, USER_STAT_CODE, USER_TAG, USER_TEL, CARD_NO, ID_CARD, V_USER_ID, 
+    V_USER_NAME, IS_EXP_USER, USER_EXP_NAME, USER_BATCH_ID, IS_ACTIVATE, IS_SX_FLAG, 
+    SX_USER_LEVEL, UPPER_USER_ID, ENT_ID, OBK_MEMSTATE, UPTMP, YPT_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+    where SYS_USER_ID = #{sysUserId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_user
+    where SYS_USER_ID = #{sysUserId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.ly.user.domain.SysUser" >
+    insert into sys_user (SYS_USER_ID, BUY_TOTAL_AMOUNT, BUYER_TOTAL_RATING, 
+      IS_ADMIN, IS_COMPLETE_USER_INF, IS_DELETE, 
+      IS_EMAIL_ACTIVATE, LAST_BUY_TIME, LAST_PSW_MISTAKE_TIME, 
+      LAST_PSW_MODIFY_TIME, LOGIN_ID, OAUTH_USER_ID, 
+      REG_ORG_ID, REGISTER_DATE, REMAIN_PSW_MISTAKE_TIMES, 
+      USER_EMAIL, USER_GRADE_LEVEL_ID, USER_ICON, 
+      USER_MOBILE, USER_NAME, USER_PSW, 
+      USER_SEX_CODE, USER_SOURCE_CODE, USER_STAT_CODE, 
+      USER_TAG, USER_TEL, CARD_NO, 
+      ID_CARD, V_USER_ID, V_USER_NAME, 
+      IS_EXP_USER, USER_EXP_NAME, USER_BATCH_ID, 
+      IS_ACTIVATE, IS_SX_FLAG, SX_USER_LEVEL, 
+      UPPER_USER_ID, ENT_ID, OBK_MEMSTATE, 
+      UPTMP, YPT_FLAG)
+    values (#{sysUserId,jdbcType=INTEGER}, #{buyTotalAmount,jdbcType=DOUBLE}, #{buyerTotalRating,jdbcType=INTEGER}, 
+      #{isAdmin,jdbcType=VARCHAR}, #{isCompleteUserInf,jdbcType=VARCHAR}, #{isDelete,jdbcType=VARCHAR}, 
+      #{isEmailActivate,jdbcType=VARCHAR}, #{lastBuyTime,jdbcType=TIMESTAMP}, #{lastPswMistakeTime,jdbcType=TIMESTAMP}, 
+      #{lastPswModifyTime,jdbcType=TIMESTAMP}, #{loginId,jdbcType=VARCHAR}, #{oauthUserId,jdbcType=VARCHAR}, 
+      #{regOrgId,jdbcType=INTEGER}, #{registerDate,jdbcType=TIMESTAMP}, #{remainPswMistakeTimes,jdbcType=INTEGER}, 
+      #{userEmail,jdbcType=VARCHAR}, #{userGradeLevelId,jdbcType=INTEGER}, #{userIcon,jdbcType=VARCHAR}, 
+      #{userMobile,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{userPsw,jdbcType=VARCHAR}, 
+      #{userSexCode,jdbcType=VARCHAR}, #{userSourceCode,jdbcType=VARCHAR}, #{userStatCode,jdbcType=VARCHAR}, 
+      #{userTag,jdbcType=VARCHAR}, #{userTel,jdbcType=VARCHAR}, #{cardNo,jdbcType=VARCHAR}, 
+      #{idCard,jdbcType=VARCHAR}, #{vUserId,jdbcType=VARCHAR}, #{vUserName,jdbcType=VARCHAR}, 
+      #{isExpUser,jdbcType=VARCHAR}, #{userExpName,jdbcType=VARCHAR}, #{userBatchId,jdbcType=VARCHAR}, 
+      #{isActivate,jdbcType=VARCHAR}, #{isSxFlag,jdbcType=VARCHAR}, #{sxUserLevel,jdbcType=VARCHAR}, 
+      #{upperUserId,jdbcType=VARCHAR}, #{entId,jdbcType=INTEGER}, #{obkMemstate,jdbcType=VARCHAR}, 
+      #{uptmp,jdbcType=VARCHAR}, #{yptFlag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.ly.user.domain.SysUser" >
+    insert into sys_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="sysUserId != null" >
+        SYS_USER_ID,
+      </if>
+      <if test="buyTotalAmount != null" >
+        BUY_TOTAL_AMOUNT,
+      </if>
+      <if test="buyerTotalRating != null" >
+        BUYER_TOTAL_RATING,
+      </if>
+      <if test="isAdmin != null" >
+        IS_ADMIN,
+      </if>
+      <if test="isCompleteUserInf != null" >
+        IS_COMPLETE_USER_INF,
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE,
+      </if>
+      <if test="isEmailActivate != null" >
+        IS_EMAIL_ACTIVATE,
+      </if>
+      <if test="lastBuyTime != null" >
+        LAST_BUY_TIME,
+      </if>
+      <if test="lastPswMistakeTime != null" >
+        LAST_PSW_MISTAKE_TIME,
+      </if>
+      <if test="lastPswModifyTime != null" >
+        LAST_PSW_MODIFY_TIME,
+      </if>
+      <if test="loginId != null" >
+        LOGIN_ID,
+      </if>
+      <if test="oauthUserId != null" >
+        OAUTH_USER_ID,
+      </if>
+      <if test="regOrgId != null" >
+        REG_ORG_ID,
+      </if>
+      <if test="registerDate != null" >
+        REGISTER_DATE,
+      </if>
+      <if test="remainPswMistakeTimes != null" >
+        REMAIN_PSW_MISTAKE_TIMES,
+      </if>
+      <if test="userEmail != null" >
+        USER_EMAIL,
+      </if>
+      <if test="userGradeLevelId != null" >
+        USER_GRADE_LEVEL_ID,
+      </if>
+      <if test="userIcon != null" >
+        USER_ICON,
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="userPsw != null" >
+        USER_PSW,
+      </if>
+      <if test="userSexCode != null" >
+        USER_SEX_CODE,
+      </if>
+      <if test="userSourceCode != null" >
+        USER_SOURCE_CODE,
+      </if>
+      <if test="userStatCode != null" >
+        USER_STAT_CODE,
+      </if>
+      <if test="userTag != null" >
+        USER_TAG,
+      </if>
+      <if test="userTel != null" >
+        USER_TEL,
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO,
+      </if>
+      <if test="idCard != null" >
+        ID_CARD,
+      </if>
+      <if test="vUserId != null" >
+        V_USER_ID,
+      </if>
+      <if test="vUserName != null" >
+        V_USER_NAME,
+      </if>
+      <if test="isExpUser != null" >
+        IS_EXP_USER,
+      </if>
+      <if test="userExpName != null" >
+        USER_EXP_NAME,
+      </if>
+      <if test="userBatchId != null" >
+        USER_BATCH_ID,
+      </if>
+      <if test="isActivate != null" >
+        IS_ACTIVATE,
+      </if>
+      <if test="isSxFlag != null" >
+        IS_SX_FLAG,
+      </if>
+      <if test="sxUserLevel != null" >
+        SX_USER_LEVEL,
+      </if>
+      <if test="upperUserId != null" >
+        UPPER_USER_ID,
+      </if>
+      <if test="entId != null" >
+        ENT_ID,
+      </if>
+      <if test="obkMemstate != null" >
+        OBK_MEMSTATE,
+      </if>
+      <if test="uptmp != null" >
+        UPTMP,
+      </if>
+      <if test="yptFlag != null" >
+        YPT_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="sysUserId != null" >
+        #{sysUserId,jdbcType=INTEGER},
+      </if>
+      <if test="buyTotalAmount != null" >
+        #{buyTotalAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="buyerTotalRating != null" >
+        #{buyerTotalRating,jdbcType=INTEGER},
+      </if>
+      <if test="isAdmin != null" >
+        #{isAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="isCompleteUserInf != null" >
+        #{isCompleteUserInf,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmailActivate != null" >
+        #{isEmailActivate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBuyTime != null" >
+        #{lastBuyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPswMistakeTime != null" >
+        #{lastPswMistakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPswModifyTime != null" >
+        #{lastPswModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginId != null" >
+        #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthUserId != null" >
+        #{oauthUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="regOrgId != null" >
+        #{regOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="registerDate != null" >
+        #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remainPswMistakeTimes != null" >
+        #{remainPswMistakeTimes,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null" >
+        #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userGradeLevelId != null" >
+        #{userGradeLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="userIcon != null" >
+        #{userIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPsw != null" >
+        #{userPsw,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexCode != null" >
+        #{userSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSourceCode != null" >
+        #{userSourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatCode != null" >
+        #{userStatCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTag != null" >
+        #{userTag,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null" >
+        #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="vUserId != null" >
+        #{vUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="vUserName != null" >
+        #{vUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="isExpUser != null" >
+        #{isExpUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userExpName != null" >
+        #{userExpName,jdbcType=VARCHAR},
+      </if>
+      <if test="userBatchId != null" >
+        #{userBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivate != null" >
+        #{isActivate,jdbcType=VARCHAR},
+      </if>
+      <if test="isSxFlag != null" >
+        #{isSxFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="sxUserLevel != null" >
+        #{sxUserLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="upperUserId != null" >
+        #{upperUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="entId != null" >
+        #{entId,jdbcType=INTEGER},
+      </if>
+      <if test="obkMemstate != null" >
+        #{obkMemstate,jdbcType=VARCHAR},
+      </if>
+      <if test="uptmp != null" >
+        #{uptmp,jdbcType=VARCHAR},
+      </if>
+      <if test="yptFlag != null" >
+        #{yptFlag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.ly.user.domain.SysUser" >
+    update sys_user
+    <set >
+      <if test="buyTotalAmount != null" >
+        BUY_TOTAL_AMOUNT = #{buyTotalAmount,jdbcType=DOUBLE},
+      </if>
+      <if test="buyerTotalRating != null" >
+        BUYER_TOTAL_RATING = #{buyerTotalRating,jdbcType=INTEGER},
+      </if>
+      <if test="isAdmin != null" >
+        IS_ADMIN = #{isAdmin,jdbcType=VARCHAR},
+      </if>
+      <if test="isCompleteUserInf != null" >
+        IS_COMPLETE_USER_INF = #{isCompleteUserInf,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmailActivate != null" >
+        IS_EMAIL_ACTIVATE = #{isEmailActivate,jdbcType=VARCHAR},
+      </if>
+      <if test="lastBuyTime != null" >
+        LAST_BUY_TIME = #{lastBuyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPswMistakeTime != null" >
+        LAST_PSW_MISTAKE_TIME = #{lastPswMistakeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastPswModifyTime != null" >
+        LAST_PSW_MODIFY_TIME = #{lastPswModifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginId != null" >
+        LOGIN_ID = #{loginId,jdbcType=VARCHAR},
+      </if>
+      <if test="oauthUserId != null" >
+        OAUTH_USER_ID = #{oauthUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="regOrgId != null" >
+        REG_ORG_ID = #{regOrgId,jdbcType=INTEGER},
+      </if>
+      <if test="registerDate != null" >
+        REGISTER_DATE = #{registerDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remainPswMistakeTimes != null" >
+        REMAIN_PSW_MISTAKE_TIMES = #{remainPswMistakeTimes,jdbcType=INTEGER},
+      </if>
+      <if test="userEmail != null" >
+        USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="userGradeLevelId != null" >
+        USER_GRADE_LEVEL_ID = #{userGradeLevelId,jdbcType=INTEGER},
+      </if>
+      <if test="userIcon != null" >
+        USER_ICON = #{userIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="userMobile != null" >
+        USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userPsw != null" >
+        USER_PSW = #{userPsw,jdbcType=VARCHAR},
+      </if>
+      <if test="userSexCode != null" >
+        USER_SEX_CODE = #{userSexCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userSourceCode != null" >
+        USER_SOURCE_CODE = #{userSourceCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userStatCode != null" >
+        USER_STAT_CODE = #{userStatCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTag != null" >
+        USER_TAG = #{userTag,jdbcType=VARCHAR},
+      </if>
+      <if test="userTel != null" >
+        USER_TEL = #{userTel,jdbcType=VARCHAR},
+      </if>
+      <if test="cardNo != null" >
+        CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null" >
+        ID_CARD = #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="vUserId != null" >
+        V_USER_ID = #{vUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="vUserName != null" >
+        V_USER_NAME = #{vUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="isExpUser != null" >
+        IS_EXP_USER = #{isExpUser,jdbcType=VARCHAR},
+      </if>
+      <if test="userExpName != null" >
+        USER_EXP_NAME = #{userExpName,jdbcType=VARCHAR},
+      </if>
+      <if test="userBatchId != null" >
+        USER_BATCH_ID = #{userBatchId,jdbcType=VARCHAR},
+      </if>
+      <if test="isActivate != null" >
+        IS_ACTIVATE = #{isActivate,jdbcType=VARCHAR},
+      </if>
+      <if test="isSxFlag != null" >
+        IS_SX_FLAG = #{isSxFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="sxUserLevel != null" >
+        SX_USER_LEVEL = #{sxUserLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="upperUserId != null" >
+        UPPER_USER_ID = #{upperUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="entId != null" >
+        ENT_ID = #{entId,jdbcType=INTEGER},
+      </if>
+      <if test="obkMemstate != null" >
+        OBK_MEMSTATE = #{obkMemstate,jdbcType=VARCHAR},
+      </if>
+      <if test="uptmp != null" >
+        UPTMP = #{uptmp,jdbcType=VARCHAR},
+      </if>
+      <if test="yptFlag != null" >
+        YPT_FLAG = #{yptFlag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SYS_USER_ID = #{sysUserId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.ly.user.domain.SysUser" >
+    update sys_user
+    set BUY_TOTAL_AMOUNT = #{buyTotalAmount,jdbcType=DOUBLE},
+      BUYER_TOTAL_RATING = #{buyerTotalRating,jdbcType=INTEGER},
+      IS_ADMIN = #{isAdmin,jdbcType=VARCHAR},
+      IS_COMPLETE_USER_INF = #{isCompleteUserInf,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=VARCHAR},
+      IS_EMAIL_ACTIVATE = #{isEmailActivate,jdbcType=VARCHAR},
+      LAST_BUY_TIME = #{lastBuyTime,jdbcType=TIMESTAMP},
+      LAST_PSW_MISTAKE_TIME = #{lastPswMistakeTime,jdbcType=TIMESTAMP},
+      LAST_PSW_MODIFY_TIME = #{lastPswModifyTime,jdbcType=TIMESTAMP},
+      LOGIN_ID = #{loginId,jdbcType=VARCHAR},
+      OAUTH_USER_ID = #{oauthUserId,jdbcType=VARCHAR},
+      REG_ORG_ID = #{regOrgId,jdbcType=INTEGER},
+      REGISTER_DATE = #{registerDate,jdbcType=TIMESTAMP},
+      REMAIN_PSW_MISTAKE_TIMES = #{remainPswMistakeTimes,jdbcType=INTEGER},
+      USER_EMAIL = #{userEmail,jdbcType=VARCHAR},
+      USER_GRADE_LEVEL_ID = #{userGradeLevelId,jdbcType=INTEGER},
+      USER_ICON = #{userIcon,jdbcType=VARCHAR},
+      USER_MOBILE = #{userMobile,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      USER_PSW = #{userPsw,jdbcType=VARCHAR},
+      USER_SEX_CODE = #{userSexCode,jdbcType=VARCHAR},
+      USER_SOURCE_CODE = #{userSourceCode,jdbcType=VARCHAR},
+      USER_STAT_CODE = #{userStatCode,jdbcType=VARCHAR},
+      USER_TAG = #{userTag,jdbcType=VARCHAR},
+      USER_TEL = #{userTel,jdbcType=VARCHAR},
+      CARD_NO = #{cardNo,jdbcType=VARCHAR},
+      ID_CARD = #{idCard,jdbcType=VARCHAR},
+      V_USER_ID = #{vUserId,jdbcType=VARCHAR},
+      V_USER_NAME = #{vUserName,jdbcType=VARCHAR},
+      IS_EXP_USER = #{isExpUser,jdbcType=VARCHAR},
+      USER_EXP_NAME = #{userExpName,jdbcType=VARCHAR},
+      USER_BATCH_ID = #{userBatchId,jdbcType=VARCHAR},
+      IS_ACTIVATE = #{isActivate,jdbcType=VARCHAR},
+      IS_SX_FLAG = #{isSxFlag,jdbcType=VARCHAR},
+      SX_USER_LEVEL = #{sxUserLevel,jdbcType=VARCHAR},
+      UPPER_USER_ID = #{upperUserId,jdbcType=VARCHAR},
+      ENT_ID = #{entId,jdbcType=INTEGER},
+      OBK_MEMSTATE = #{obkMemstate,jdbcType=VARCHAR},
+      UPTMP = #{uptmp,jdbcType=VARCHAR},
+      YPT_FLAG = #{yptFlag,jdbcType=VARCHAR}
+    where SYS_USER_ID = #{sysUserId,jdbcType=INTEGER}
+  </update>
+</mapper>
